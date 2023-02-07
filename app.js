@@ -2,12 +2,23 @@ import express from "express"
 
 const app = express();
 
+//ejs template engine
+app.set("view engine", 'ejs');
+
+
+
+//static files middleware
+app.use(express.static('public'));
+
 
 const port = 3000;
 
 
 app.get("/", (req, res)=>{
-    res.send("INDEX SAYFASI");
+    res.render('index');
+});
+app.get("/about", (req, res)=>{
+    res.render('about');
 });
 
 
